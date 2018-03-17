@@ -218,3 +218,77 @@ There are a few steps you may want to take to troubleshoot these kinds of errors
 If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
 
 If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
+
+
+
+
+                Packages used for navigation in react-native is react-navigation
+
+
+
+Installation
+
+
+
+Using yarn
+
+ yarn add react-navigation
+Using npm 
+
+npm install --save react-navigation
+   
+
+
+
+
+
+Navigators
+
+
+
+StackNavigator is a function that returns a React component. It takes a route configuration object and, optionally, an options object . Because the StackNavigator function returns a React component, we can export it directly from App.js to be used as our App's root component.
+                       
+
+
+
+
+Figure 1 : 
+
+1). Navigation Bar
+
+2) Content area - Where the content is displayed.
+
+
+
+
+
+
+
+ How do you navigate to a new screen?
+
+
+
+     this.props.navigation.navigate('Details');
+
+
+
+
+
+The navigation prop is available to all screen components (components defined as screens in route configuration and rendered by React Navigation as a route).
+navigate('Details'): we call the navigate function with the name of the route that we'd like to move the user to.
+
+
+
+
+There are two pieces to this:
+
+Pass params to a route by putting them in an object as a second parameter to the navigation.navigate function: this.props.navigation.navigate('RouteName', { /* params go here */ })
+Read the params in your screen component: this.props.navigation.state.params. Alternatively, if you want to access the params directly (eg. through this.props.itemId), you may use a community-developed react-navigation-props-mapper package.
+
+
+        
+
+
+
+
+ 
